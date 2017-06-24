@@ -1,0 +1,126 @@
+<html ng-app="overSeries">
+<head>
+    <meta charset="utf-8">
+    <title>OverSeries</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo|Patrick+Hand+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/style.css">
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-locale_pt-br.js"></script>
+    <script src="lib/angular/angular-messages.js"></script>
+    <script src="lib/bootstrap/bootstrap.js"></script>
+    <script src="lib/js/app.js"></script>
+    <script src="lib/js/controllers/overSeriesCtrl.js"></script>
+</head>
+<body ng-controller="overSeriesCtrl">
+
+    <div class="top">
+        <form>
+            <input class="search-box" type="text" ng-model="input" name="input" placeholder="Digite sua pesquisa aqui" onfocus="placeholder=''" onblur="placeholder='Digite sua pesquisa aqui'"/>
+            <button id="search-button" class="search-button" ng-click="enviarInput()"><i class="glyphicon glyphicon-search"></i></button>
+            <span class="titulo">OverSeries</span>
+        </form>
+    </div>
+
+    <nav class="option-bar">
+        <ul>
+            <li>
+                <input type="radio" id="search" class="radio-tab" name="tabs">
+                <label for="search" class="tab-label">PESQUISA</label>
+                <div class="tab-content">
+                    <div ng-show="busca.length > 0">
+                        <div class="gallery">
+                            <div class="imgContainer" ng-repeat="serie in busca">
+                                <img class="img-thumbnail" src="{{serie.Poster !== 'N/A' ? serie.Poster:'lib/img/poster.jpg'}}" width="200px" height="297px">
+                                <div class="middle">
+                                    <div class="serie-title">{{serie.Title}}</div>
+                                    <div class="buttons">
+                                        <button class="add-button-search-profile btn btn-primary " ng-click="addProfile(serie)">PERFIL</button>
+                                        <button class="add-button-search-watchlist btn btn-danger " ng-click="addWatchlist(serie)">WATCHLIST</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="tabs" class="radio-tab" id="profile" checked>
+                <label for="profile" class="tab-label">PERFIL</label>
+                <div class="tab-content">
+                    <div ng-show="profile.length > 0">
+                        <div class="gallery">
+                            <div class="imgContainer" ng-repeat="serie in profile">
+                                <img class="img-thumbnail" src="{{serie.Poster !== 'N/A' ? serie.Poster:'lib/img/poster.jpg'}}" width="200px" height="297px">
+                                <div class="middle">
+                                    <div class="serie-title">{{serie.Title}}</div>
+                                    <div class="buttons">
+                                        <button class="info-button btn btn-primary" ng-click="setSerieToDisplay(serie)" data-toggle="modal" data-target="#myModal{{$index}}">SOBRE</button>
+                                        <button class="remove-button btn btn-danger" ng-click="removeProfile(serie)">REMOVER</button>
+                                    </div>
+                                </div>
+                                <div id="myModal{{$index}}" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h3 class="modal-title">{{serie.Title}} [{{serie.Rated}}]</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="serie-profile">
+                                                        <div class="info-profile">
+                                                            <div class="rating">
+                                                                <br>
+                                                                <span class="info-title">IMDB Nota:</span>
+                                                                <span class="info-content">{{serie.imdbRating}}</span><br><br><br>
+                                                                <span class="info-title">Sua Nota:</span>
+                                                                <span class="info-content">{{serie.myRating}}</span><br><br><br>
+                                                                <span class="info-title">Último episódio:</span>
+                                                                <span class="info-content">{{serie.lastEpisode}}</span><br><br><br>
+                                                                <span class="info-title">Digite sua nota: </span><input class="profile-input" type="text" name="rating" ng-model="rating" placeholder="Ex.: 10.0"><button class="submit-button" type="submit" ng-click="enviarRating(serie, rating)" value=“submit”><i class="glyphicon glyphicon-ok-sign"></i></button><br><br><br>
+                                                                <span class="info-title">Digite o último episódio: </span><input class="profile-input" type="text" name="episode" ng-model="episode" placeholder="Ex.: S02E05"><button class="submit-button" type="submit" ng-click="enviarLastEpisode(serie, episode)" value=“submit”><i class="glyphicon glyphicon-ok-sign"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <img class="profile-pic" src="{{serie.Poster !== 'N/A' ? serie.Poster:'lib/img/poster.jpg'}}" width="200px" height="297px">
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="plot">
+                                                        <h4 class="plot-title"> Sinopse: </h4>
+                                                        <h4 class="info-content"> {{serie.Plot}} </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="tabs" class="radio-tab" id="watchlist">
+                    <label for="watchlist" class="tab-label">WATCHLIST</label>
+                    <div class="tab-content">
+                        <div ng-show="watchlist.length > 0">
+                            <div class="gallery">
+                                <div class="imgContainer" ng-repeat="serie in watchlist">
+                                    <img class="img-thumbnail" src="{{serie.Poster !== 'N/A' ? serie.Poster:'lib/img/poster.jpg'}}" width="200px" height="297px">
+                                    <div class="middle">
+                                        <div class="serie-title">{{serie.Title}}</div>
+                                        <div class="buttons">
+                                            <button class="add-button btn btn-primary" ng-click="addProfile(serie); removeWatchlistNoWarning(serie)">PERFIL</button>
+                                            <button class="remove-button btn btn-danger" ng-click="removeWatchlist(serie)">REMOVER</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </body>
+    </html>
