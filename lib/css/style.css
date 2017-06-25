@@ -3,7 +3,7 @@
     padding: 0;
 }
 body {
-    background-color: #F44336;
+    background-color: #3E4F5C;
 
 }
 input:focus {
@@ -12,10 +12,10 @@ input:focus {
 .top {
     margin: 0%;
     height: 40px;
-    background-color: #01579B;
+    background-color: #9EDACC;
 }
 .search-box {
-    border: 2px solid #F44336;
+    border: 2px solid #3E4F5C;
     margin-top: 7px;
     float: right;
     text-align: left;
@@ -32,7 +32,7 @@ input:focus {
     float: right;
     margin-top: 15px;
     margin-right: 10px;
-    background-color: #01579B;
+    background-color: #9EDACC;
     border: none;
     color: white;
     text-decoration: none;
@@ -48,7 +48,7 @@ input:focus {
     display: inline-block;
     font-family: 'Exo', sans-serif;
     font-size: 35px;
-    color: #E0F7FA;
+    color: #FFFD82;
 }
 .option-bar{
     font-family: 'Exo', sans-serif;
@@ -74,7 +74,7 @@ input:focus {
     width: auto;
     position: relative;
     top: -37px;
-    background-color: #01579B;
+    background-color: #9EDACC;
     font-size: 16px;
     color: #a7adba;
     cursor: pointer;
@@ -155,7 +155,7 @@ input:focus {
     border: none;
 }
 .add-button-search-watchlist {
-    background-color: #F44336;
+    background-color: #3E4F5C;
     text-align: center;
     font-weight: bold;
     width: 53%;
@@ -172,7 +172,7 @@ input:focus {
     border: none;
 }
 .remove-button {
-    background-color: #F44336;
+    background-color: #3E4F5C;
     text-align: center;
     font-weight: bold;
     width: 48%;
