@@ -155,7 +155,6 @@ input:focus {
     border: none;
 }
 .add-button-search-watchlist {
-    background-color: #3E4F5C;
     text-align: center;
     font-weight: bold;
     width: 53%;
@@ -172,7 +171,6 @@ input:focus {
     border: none;
 }
 .remove-button {
-    background-color: #3E4F5C;
     text-align: center;
     font-weight: bold;
     width: 48%;
