@@ -55,18 +55,19 @@ input:focus {
     text-align: center;
     height: 93%;
     width: 100%;
-    background-color: #01579B;
+    background-color: #EEEEEE;
 }
 .option-bar ul{
     text-align: center;
     list-style: none;
     margin-left: 31.5%;
+
 }
 .option-bar ul li{
     float: left;
     width: 18%;
-    border-left: 2px solid #01579B;
-    border-right: 2px solid #01579B;
+    border-left: 2px solid #EEEEEE;
+    border-right: 2px solid #EEEEEE;
 }
 .tab-label{
     display: inline-block;
