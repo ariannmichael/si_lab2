@@ -19,7 +19,7 @@ input:focus {
     margin-top: 7px;
     position: relative;
     right: 130px;
-    top: -8px;
+    top: -9px;
     text-align: left;
     text-indent: 5;
     margin-right: 8px;
@@ -33,7 +33,7 @@ input:focus {
     width: 1%;
     position: relative;
     right: 130px;
-    top: -5px;
+    top: -6px;
     margin-top: 15px;
     margin-right: 5px;
     background-color: #9EDACC;
@@ -149,7 +149,8 @@ input:focus {
     border: none;
 }
 .add-button-search-profile {
-    background-color: #039BE5;
+    background-color: #1E88E5;
+    color: white;
     text-align: center;
     font-weight: bold;
     width: 40%;
@@ -160,6 +161,8 @@ input:focus {
 .add-button-search-watchlist {
     text-align: center;
     font-weight: bold;
+    color: white;
+    background-color: green;
     width: 53%;
     display: inline-block;
     font-size: 13px;
